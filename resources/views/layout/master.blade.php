@@ -11,7 +11,7 @@
 
 <body>
     {{-- NavBar  --}}
-    <nav class="flex justify-between fixed w-screen z-10 top-0 py-5 px-5 pt-6 md:px-14 lg:px-20 bg-cyan-600 ">
+    {{-- <nav class="flex justify-between fixed w-screen z-10 top-0 py-5 px-5 pt-6 md:px-14 lg:px-20 bg-cyan-600 ">
         <h1 class="text-lg md:text-xl font-bold font-RalewayThin dark:text-white hover:cursor-pointer">
             Assigment
         </h1>
@@ -28,8 +28,8 @@
 
             </li>
         </ul>
-    </nav>
-    <main class="mt-28">
+    </nav> --}}
+    <main>
         @yield('content')
     </main>
 </body>

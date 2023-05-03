@@ -40,7 +40,6 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name'=>'required',
             'category_id'=>'required',
@@ -52,6 +51,8 @@ class ItemController extends Controller
             'owner_name'=>'required',
             'owner_phone'=>'required',
             'owner_address'=>'required',
+            'latitude'=>'required',
+            'longitude'=>'required'
         ]);
         $file = request()->file('photo');
         $file_name = uniqid().$file->getClientOriginalName();
@@ -61,8 +62,8 @@ class ItemController extends Controller
             'name'=>$request->owner_name,
             'phone'=>$request->owner_phone,
             'address'=>$request->owner_address,
-            'latitude'=>'96.45645645456',
-            'longitude'=>'16.1231231231',
+            'latitude'=>$request->latitude,
+            'longitude'=>$request->longitude,
         ]);
 
         Item::create([

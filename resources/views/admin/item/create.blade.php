@@ -1,11 +1,10 @@
 @extends('admin.layout.master')
 @section('css')
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style type="text/css">
-        #map {
-            height: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="src/leaflet.css" />
+    <link rel="stylesheet" href="dist/leaflet-locationpicker.src.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 @endsection
 @section('content')
     <section>
@@ -189,9 +188,9 @@
                             cols="30" rows="5" placeholder="Enter Address"></textarea>
                     </div>
                     <div class="mt-4">
-
-                        <div id="map"></div>
-
+                        <div id="map" class="h-96"></div>
+                        <input type="hidden" name="latitude" id="latitude">
+                        <input type="hidden" name="longitude" id="longitude">
                     </div>
                     {{-- Submit Button --}}
                     <div class="mt-4 flex flex-row-reverse">
@@ -217,28 +216,28 @@
             });
     </script>
     <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="js/jquery.storelocator.js"></script>
-    <script type="text/javascript">
-        function initMap() {
-            const myLatLng = {
-                lat: 22.2734719,
-                lng: 70.7512559
-            };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 5,
-                center: myLatLng,
-            });
+    <script src="src/jquery.min.js"></script>
+    <script src="src/leaflet.js"></script>
+    <script src="dist/leaflet-locationpicker.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet-src.js"
+        integrity="sha512-fpi1rrlFr2rHd73hMSMXVnwSHViuYx19zS0NDn6awKeMuQZk7JU4UpyR44bSqGZxzDMzBnVEewram7ZGwhRbZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet-src.js.map"></script>
+    <script>
+        var map = L.map('map').setView(['16.906708485020037', '96.08952839193965'], 13);
 
-            new google.maps.Marker({
-                position: myLatLng,
-                map,
-                title: "Hello Rajkot!",
-            });
-        }
-
-        window.initMap = initMap;
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker(['16.906708485020037', '96.08952839193965']).addTo(map)
+            .bindPopup('Select Yout Location By Click On Map')
+            .openPopup();
+        map.on('click', function(e) {
+            alert("Your Location is Added With - Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+            document.getElementById('latitude').value = e.latlng.lat
+            document.getElementById('longitude').value = e.latlng.lng
+        });
     </script>
-
-    <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"></script>
 @endsection

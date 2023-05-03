@@ -18,7 +18,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = Item::latest()->paginate(9);
+        $items = Item::latest()->paginate(10);
         return view('admin.index',compact('items'));
     }
 

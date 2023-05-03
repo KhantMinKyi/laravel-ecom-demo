@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assigment</title>
-    @vite('resources/css/app.css')
+    @vite(['./resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @yield('css')
 </head>
 
 <body>
@@ -29,9 +31,13 @@
             </li>
         </ul>
     </nav> --}}
+    <div class="">
+        <img src="{{ asset('/bg2.jpg') }}" class="w-full h-full">
+    </div>
     <main>
         @yield('content')
     </main>
+    @yield('script')
 </body>
 
 </html>

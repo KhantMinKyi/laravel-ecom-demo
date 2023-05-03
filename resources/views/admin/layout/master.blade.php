@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assigment</title>
+    <title>Assignment</title>
     @vite(['../resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     @yield('css')
 </head>
 
@@ -15,7 +16,7 @@
     {{-- NavBar  --}}
     {{-- <nav class="flex justify-between fixed w-screen z-10 top-0 py-4 px-5 pt-3 md:px-14 lg:px-20 bg-cyan-600 ">
         <h1 class="text-lg md:text-xl font-bold font-RalewayThin dark:text-white hover:cursor-pointer">
-            Assigment
+            Assignment
         </h1>
 
         <ul class="flex items-center text-sm md:text-lg font-RalewayThin text-teal-600 dark:text-white">
@@ -77,12 +78,11 @@
                 </li>
             </ul>
 
-            <div class="mt-auto">
+            <div class="mt-96">
                 <a href="/logout"
                     class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-indigo-500 hover:text-white">
-                    <i class="fa-solid fa-list w-6 h-6  transition duration-75 ">
+                    <i class="fa-solid fa-right-from-bracket w-6 h-6  transition duration-75 ">
                     </i>
-
                     <span class="flex-1 ml-3 whitespace-nowrap">Logout</span>
                 </a>
             </div>

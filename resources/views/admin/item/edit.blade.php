@@ -1,11 +1,10 @@
 @extends('admin.layout.master')
 @section('css')
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style type="text/css">
-        #map {
-            height: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="src/leaflet.css" />
+    <link rel="stylesheet" href="dist/leaflet-locationpicker.src.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 @endsection
 @section('content')
     <section>
@@ -20,8 +19,8 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li>
                     <div class="flex items-center">
-                        <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">Categories</a>
+                        <a href="{{ url('/category') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">Items</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -32,13 +31,13 @@
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <span class="ml-1 text-sm font-medium text-blue-400 md:ml-2 ">Edit Categories</span>
+                        <span class="ml-1 text-sm font-medium text-blue-400 md:ml-2 ">Edit Items</span>
                     </div>
                 </li>
             </ol>
         </nav>
         <div class="mt-4 bg-indigo-100 rounded-md p-2">
-            <h5 class="text-xl ">Add Categories</h5>
+            <h5 class="text-xl ">Edit Items </h5>
         </div>
         {{-- Body Of Item Create --}}
         <form action={{ route('item.update', $item->id) }} method="POST" enctype="multipart/form-data">
@@ -191,12 +190,10 @@
                             cols="30" rows="5" placeholder="Enter Address">{{ $item->owner->address }}</textarea>
                     </div>
                     <div class="mt-4">
-
-                        <div id="map"></div>
-
-                    </div>
-                    {{-- Submit Button --}}
-                    <div class="mt-4 flex flex-row-reverse">
+                        <div id="map" class="h-96"></div>
+                        <input type="hidden" name="latitude" id="latitude">
+                        <input type="hidden" name="longitude" id="longitude">
+                        </{{ $item->latitude }} {{-- Submit Button --}} <div class="mt-4 flex flex-row-reverse">
                         <input type="submit" value="Save"
                             class="p-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 cursor-pointer">
                         <button class=" p-2 rounded-md mx-2 text-indigo-400">Cancel</button>
@@ -219,28 +216,29 @@
             });
     </script>
     <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="js/jquery.storelocator.js"></script>
-    <script type="text/javascript">
-        function initMap() {
-            const myLatLng = {
-                lat: 22.2734719,
-                lng: 70.7512559
-            };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 5,
-                center: myLatLng,
-            });
+    <script src="src/jquery.min.js"></script>
+    <script src="src/leaflet.js"></script>
+    <script src="dist/leaflet-locationpicker.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet-src.js"
+        integrity="sha512-fpi1rrlFr2rHd73hMSMXVnwSHViuYx19zS0NDn6awKeMuQZk7JU4UpyR44bSqGZxzDMzBnVEewram7ZGwhRbZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet-src.js.map"></script>
+    <script>
+        var map = L.map('map').setView([{{ $item->owner->latitude }}, {{ $item->owner->longitude }}], 13);
 
-            new google.maps.Marker({
-                position: myLatLng,
-                map,
-                title: "Hello Rajkot!",
-            });
-        }
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([{{ $item->owner->latitude }}, {{ $item->owner->longitude }}]).addTo(map)
+            .bindPopup('Select Yout Location By Click On Map')
+            .openPopup();
+        map.on('click', function(e) {
+            alert("Your Location is Added With - Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+            document.getElementById('latitude').value = e.latlng.lat
+            document.getElementById('longitude').value = e.latlng.lng
 
-        window.initMap = initMap;
+        });
     </script>
-
-    <script type="text/javascript"
-        src="https://maps.google.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"></script>
 @endsection

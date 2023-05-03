@@ -21,7 +21,7 @@ class ItemFactory extends Factory
             'price' => fake()->randomNumber(),
             'description' => fake()->paragraph(),
             'category_id' => "1",
-            'owner_id' => "1",
+            'owner_id' => fake()->randomDigitNotZero(),
             'photo' => "item.jpg",
         ];
     }

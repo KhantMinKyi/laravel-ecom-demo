@@ -46,12 +46,18 @@
                             </td>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $category->name }}</td>
-                            <td>{{ $category->status }}</td>
+                            <td><label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" value="" class="sr-only peer" disabled
+                                        @if ($category->status == 'publish') checked @endif>
+                                    <div
+                                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                                    </div>
+                                </label></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{ $categories->links() }}
+            {{ $categories->links('pagination::tailwind') }}
         </div>
     </section>
 @endsection

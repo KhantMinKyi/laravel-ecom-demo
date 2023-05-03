@@ -19,8 +19,8 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li>
                     <div class="flex items-center">
-                        <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">Categories</a>
+                        <a href="{{ url('/admin') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">Items</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -31,13 +31,13 @@
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <span class="ml-1 text-sm font-medium text-blue-400 md:ml-2 ">Add Categories</span>
+                        <span class="ml-1 text-sm font-medium text-blue-400 md:ml-2 ">Add Items</span>
                     </div>
                 </li>
             </ol>
         </nav>
         <div class="mt-4 bg-indigo-100 rounded-md p-2">
-            <h5 class="text-xl ">Add Categories</h5>
+            <h5 class="text-xl ">Add Items</h5>
         </div>
         {{-- Body Of Item Create --}}
         <form action={{ route('item.store') }} method="POST" enctype="multipart/form-data">

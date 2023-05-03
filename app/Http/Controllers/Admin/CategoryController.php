@@ -46,10 +46,15 @@ class CategoryController extends Controller
         $file = request()->file('photo');
         $file_name = uniqid().$file->getClientOriginalName();
         $file->move(public_path('/images/Category/'),$file_name);
+        if($request->status == null){
+            $status = 'none';
+        }else{
+            $status = $request->status;
+        }
         Category::create([
             'name'=>$request->name,
             'photo'=>$file_name,
-            'status'=>$request->status
+            'status'=>$status
         ]);
         return redirect()->back()->with('success','Category Created Successfully');
     }
@@ -103,10 +108,15 @@ class CategoryController extends Controller
         }else{
             $file_name =$category->photo;
         }
+        if($request->status == null){
+            $status = 'none';
+        }else{
+            $status = $request->status;
+        }
         $category->update([
             'name'=>$request->name,
             'photo'=>$file_name,
-            'status'=>$request->status
+            'status'=>$status
         ]);
         return redirect()->back()->with('success','Category Updated Successfully');
     }

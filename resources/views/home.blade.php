@@ -34,41 +34,56 @@
             </div>
             {{-- categories --}}
             <div class="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-8 mt-10">
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i class="fa fa-solid fa-laptop text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Computer</h6>
-                </div>
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i class="fa fa-solid fa-mobile text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Phone</h6>
-                </div>
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i class="fa fa-solid fa-house text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Property</h6>
-                </div>
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i class="fa fa-solid fa-music text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Music</h6>
-                </div>
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i class="fa fa-solid fa-shirt text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Fashions</h6>
-                </div>
-                <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
-                    <i
-                        class="fa fa-solid fa-screwdriver-wrench text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
-                    <h6 class="text-sm font-semibold mt-3 text-gray-400">Service</h6>
-                </div>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i class="fa fa-solid fa-laptop text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Computer</h6>
+                    </div>
+                </a>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i class="fa fa-solid fa-mobile text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Phone</h6>
+                    </div>
+                </a>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i class="fa fa-solid fa-house text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Property</h6>
+                    </div>
+                </a>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i class="fa fa-solid fa-music text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Music</h6>
+                    </div>
+                </a>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i class="fa fa-solid fa-shirt text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Fashions</h6>
+                    </div>
+                </a>
+                <a href="{{ url('/products') }}">
+                    <div class="col-span-1 text-center bg-gray-50 p-2 py-6 md:py-6 md:px-0 rounded-md">
+                        <i
+                            class="fa fa-solid fa-screwdriver-wrench text-indigo-500 bg-gray-100 p-2 rounded-full md:text-lg md:p-3"></i>
+                        <h6 class="text-sm font-semibold mt-3 text-gray-400">Service</h6>
+                    </div>
+                </a>
             </div>
             {{-- 2nd Line --}}
             <div class="flex justify-between mt-10">
                 <div>
                     <h1 class="font-bold">Recent Items</h1>
                 </div>
-                <div>
-                    <h6 class="text-indigo-500">View More <i class="fa fa-solid fa-greater-than font-thin ms-2 text-sm"></i>
-                    </h6>
-                </div>
+                <a href="{{ url('/products') }}">
+                    <div>
+                        <h6 class="text-indigo-500">View More <i
+                                class="fa fa-solid fa-greater-than font-thin ms-2 text-sm"></i>
+                        </h6>
+                    </div>
+                </a>
             </div>
             {{-- Items --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 mt-10">
@@ -95,6 +110,7 @@
                     </a>
                 @endforeach
             </div>
+            {{ $items->links('pagination::tailwind') }}
         </div>
     </div>
 @endsection

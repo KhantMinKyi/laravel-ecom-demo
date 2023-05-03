@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <div class="grid grid-cols-7 start-1 mt-4 ">
+    <div class="grid md:grid-cols-7 start-1 mt-4 ">
         <div class=" col-start-2 col-span-5">
             {{-- breadscumb --}}
             <nav class="flex" aria-label="Breadcrumb">
@@ -26,7 +26,7 @@
             </nav>
 
             <div class="grid md:grid-cols-7 start-1 mt-4 gap-4">
-                <div class="col-span-2">
+                <div class="col-span-7 md:col-span-2">
                     <form action="">
                         <div class="flex justify-between mb-10">
                             <h6 class="font-semibold">Filter By</h6>
@@ -147,6 +147,7 @@
                             </a>
                         @endforeach
                     </div>
+                    {{ $items->links('pagination::tailwind') }}
                 </div>
             </div>
 

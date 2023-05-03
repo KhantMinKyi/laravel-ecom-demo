@@ -17,7 +17,7 @@ class PageController extends Controller
         if($category_id = request()->category){
             $items->where('category_id',$category_id);
         }
-        $items = $items->paginate(20);
+        $items = $items->paginate(10);
         return view('home',compact('items','categories'));
     }
 
@@ -49,7 +49,7 @@ class PageController extends Controller
             $items->where('type',$type);
         }
 
-        $items = $items->paginate(20);
+        $items = $items->paginate(10);
         return view('item.index',compact('items','categories'));
     }
 }

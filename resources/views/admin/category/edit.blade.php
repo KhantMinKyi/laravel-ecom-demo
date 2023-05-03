@@ -12,7 +12,7 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li>
                     <div class="flex items-center">
-                        <a href="#"
+                        <a href="{{ url('/category') }}"
                             class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">Categories</a>
                     </div>
                 </li>

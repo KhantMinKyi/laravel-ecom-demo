@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'email'=>"admin@gmail.com",
             'password'=>Hash::make('asdasdasd')
         ]);
+        for ($i=0; $i < 10; $i++) {
         Owner::create([
             'name'=>"KMK",
             'phone'=>"324234234",
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'latitude'=>"16.779452797237106",
             'longitude'=>"96.15937989252826",
         ]);
+    }
         Category::create([
             'name'=>"Electronic",
             'photo'=>"item.jpg",

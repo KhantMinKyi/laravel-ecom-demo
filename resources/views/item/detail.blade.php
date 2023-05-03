@@ -76,10 +76,18 @@
                                             class="bg-red-100 text-red-500 font-semibold rounded-md p-1 me-5">{{ $item->type }}</span>
                                     </td>
                                     <td><span
-                                            class="bg-blue-100 text-blue-500 font-semibold rounded-md p-1 me-5">{{ $item->type }}</span>
+                                            class="bg-blue-100 text-blue-500 font-semibold rounded-md p-1 me-5">{{ $item->condition }}</span>
                                     </td>
-                                    <td><span
-                                            class="bg-green-100 text-green-500 font-semibold rounded-md p-1 me-5">{{ $item->type }}</span>
+                                    <td>
+                                        @if ($item->status == 'publish')
+                                            <span class="bg-green-100 text-green-500 font-semibold rounded-md p-1 me-5">
+                                                Available
+                                            </span>
+                                        @else
+                                            <span class="bg-red-100 text-red-500 font-semibold rounded-md p-1 me-5">
+                                                Out Of Stoke
+                                            </span>
+                                        @endif
                                     </td>
                                 </tr>
                             </tbody>

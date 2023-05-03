@@ -65,12 +65,16 @@ class ItemController extends Controller
             'latitude'=>$request->latitude,
             'longitude'=>$request->longitude,
         ]);
-
+        if($request->status == null){
+            $status = 'none';
+        }else{
+            $status = $request->status;
+        }
         Item::create([
             'name'=>$request->name,
             'category_id'=>$request->category_id,
             'price'=>$request->price,
-            'status'=>$request->status,
+            'status'=>$status,
             'description'=>$request->description,
             'condition'=>$request->condition,
             'type'=>$request->type,
@@ -141,11 +145,17 @@ class ItemController extends Controller
                 }else{
                     $file_name =$item->photo;
                 }
+
+        if($request->status == null){
+            $status = 'none';
+        }else{
+            $status = $request->status;
+        }
         $item->update([
             'name'=>$request->name,
             'category_id'=>$request->category_id,
             'price'=>$request->price,
-            'status'=>$request->status,
+            'status'=>$status,
             'description'=>$request->description,
             'condition'=>$request->condition,
             'type'=>$request->type,
@@ -156,8 +166,8 @@ class ItemController extends Controller
             'name'=>$request->owner_name,
             'phone'=>$request->owner_phone,
             'address'=>$request->owner_address,
-            'latitude'=>'96.45645645456',
-            'longitude'=>'16.1231231231',
+            'latitude'=>$request->latitude,
+            'longitude'=>$request->longitude,
         ]);
         return redirect()->back()->with('success','Items Updated Successfully');
     }

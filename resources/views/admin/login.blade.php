@@ -28,10 +28,10 @@
                         placeholder="*********">
                 </div>
                 <button type="submit"
-                    class=" bg-cyan-500 p-2 rounded-lg font-RalewayThin w-full focus:outline-none hover:bg-cyan-600 shadow hover:shadow-xl">Log
+                    class=" bg-indigo-500 p-2 rounded-lg font-RalewayThin text-white w-full focus:outline-none hover:bg-indigo-600 shadow hover:shadow-xl">Log
                     In</button>
                 <p class="text-sm font-light text-gray-500 ">
-                    Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline ">Sign
+                    Don’t have an account yet? <a href="#" class="font-medium text-indigo-600 hover:underline ">Sign
                         up</a>
                 </p>
             </form>
